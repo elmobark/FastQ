@@ -6,4 +6,9 @@
 //  Copyright © 2019 emobark. All rights reserved.
 //
 
-import Foundation
+
+let AppLunch = "APP_LUNCH"
+enum Queues: String{
+    case CurrentQ = "Current_queue"
+}
+

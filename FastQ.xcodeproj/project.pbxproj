@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9199BBCCE86273EF0BBC677E /* Pods_FastQ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0670EBCD240591EB881B50FB /* Pods_FastQ.framework */; };
+		CC0A7D192379E9B900745D5E /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0A7D182379E9B900745D5E /* Util.swift */; };
+		CC0A7D1B2379EE2E00745D5E /* keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0A7D1A2379EE2E00745D5E /* keys.swift */; };
+		CC0A7D1E2379EFC700745D5E /* QueueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0A7D1D2379EFC700745D5E /* QueueModel.swift */; };
+		CC0CF5B623630D7400360A6F /* pageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0CF5B523630D7400360A6F /* pageController.swift */; };
+		CC0CF5B82363561700360A6F /* lang.strings in Resources */ = {isa = PBXBuildFile; fileRef = CC0CF5B72363561700360A6F /* lang.strings */; };
+		CC303BB22379C15C0023E958 /* SPListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC303BB12379C15C0023E958 /* SPListController.swift */; };
 		CCFC6201236070D0007B587D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFC6200236070D0007B587D /* AppDelegate.swift */; };
 		CCFC6203236070D0007B587D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFC6202236070D0007B587D /* ViewController.swift */; };
 		CCFC6206236070D0007B587D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCFC6204236070D0007B587D /* Main.storyboard */; };
@@ -16,6 +23,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0670EBCD240591EB881B50FB /* Pods_FastQ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FastQ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		949F94305E46101F643F9E06 /* Pods-FastQ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FastQ.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FastQ/Pods-FastQ.debug.xcconfig"; sourceTree = "<group>"; };
+		CC0A7D182379E9B900745D5E /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		CC0A7D1A2379EE2E00745D5E /* keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keys.swift; sourceTree = "<group>"; };
+		CC0A7D1D2379EFC700745D5E /* QueueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueModel.swift; sourceTree = "<group>"; };
+		CC0CF5B523630D7400360A6F /* pageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pageController.swift; sourceTree = "<group>"; };
+		CC0CF5B72363561700360A6F /* lang.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = lang.strings; sourceTree = "<group>"; };
+		CC303BB12379C15C0023E958 /* SPListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPListController.swift; sourceTree = "<group>"; };
 		CCFC61FD236070D0007B587D /* FastQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFC6200236070D0007B587D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCFC6202236070D0007B587D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +39,7 @@
 		CCFC620A236070D5007B587D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCFC620D236070D5007B587D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CCFC620F236070D5007B587D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D20C841E08D75180CC448BC9 /* Pods-FastQ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FastQ.release.xcconfig"; path = "Pods/Target Support Files/Pods-FastQ/Pods-FastQ.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +47,62 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9199BBCCE86273EF0BBC677E /* Pods_FastQ.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4FEE0EBED421B210EF9AA2D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0670EBCD240591EB881B50FB /* Pods_FastQ.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		82118DBF2E08710508B976AD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				949F94305E46101F643F9E06 /* Pods-FastQ.debug.xcconfig */,
+				D20C841E08D75180CC448BC9 /* Pods-FastQ.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CC0A7D1C2379EFA400745D5E /* models */ = {
+			isa = PBXGroup;
+			children = (
+				CC0A7D1D2379EFC700745D5E /* QueueModel.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		CC303BAF2379C10C0023E958 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CC303BB12379C15C0023E958 /* SPListController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CC303BB02379C1280023E958 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CC0A7D182379E9B900745D5E /* Util.swift */,
+				CC0A7D1A2379EE2E00745D5E /* keys.swift */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
 		CCFC61F4236070D0007B587D = {
 			isa = PBXGroup;
 			children = (
 				CCFC61FF236070D0007B587D /* FastQ */,
 				CCFC61FE236070D0007B587D /* Products */,
+				82118DBF2E08710508B976AD /* Pods */,
+				4FEE0EBED421B210EF9AA2D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +117,9 @@
 		CCFC61FF236070D0007B587D /* FastQ */ = {
 			isa = PBXGroup;
 			children = (
+				CC0A7D1C2379EFA400745D5E /* models */,
+				CC303BB02379C1280023E958 /* helpers */,
+				CC303BAF2379C10C0023E958 /* Controllers */,
 				CCFC6200236070D0007B587D /* AppDelegate.swift */,
 				CCFC6202236070D0007B587D /* ViewController.swift */,
 				CCFC6204236070D0007B587D /* Main.storyboard */,
@@ -63,6 +127,8 @@
 				CCFC620C236070D5007B587D /* LaunchScreen.storyboard */,
 				CCFC620F236070D5007B587D /* Info.plist */,
 				CCFC6207236070D0007B587D /* FastQ.xcdatamodeld */,
+				CC0CF5B523630D7400360A6F /* pageController.swift */,
+				CC0CF5B72363561700360A6F /* lang.strings */,
 			);
 			path = FastQ;
 			sourceTree = "<group>";
@@ -74,9 +140,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CCFC6212236070D5007B587D /* Build configuration list for PBXNativeTarget "FastQ" */;
 			buildPhases = (
+				7B1E432A529E03329A9FBB1B /* [CP] Check Pods Manifest.lock */,
 				CCFC61F9236070D0007B587D /* Sources */,
 				CCFC61FA236070D0007B587D /* Frameworks */,
 				CCFC61FB236070D0007B587D /* Resources */,
+				7824235F9999DC56F903E690 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,20 +195,65 @@
 			files = (
 				CCFC620E236070D5007B587D /* LaunchScreen.storyboard in Resources */,
 				CCFC620B236070D5007B587D /* Assets.xcassets in Resources */,
+				CC0CF5B82363561700360A6F /* lang.strings in Resources */,
 				CCFC6206236070D0007B587D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7824235F9999DC56F903E690 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FastQ/Pods-FastQ-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FastQ/Pods-FastQ-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B1E432A529E03329A9FBB1B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FastQ-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CCFC61F9236070D0007B587D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC0A7D1B2379EE2E00745D5E /* keys.swift in Sources */,
+				CC0A7D1E2379EFC700745D5E /* QueueModel.swift in Sources */,
+				CC0CF5B623630D7400360A6F /* pageController.swift in Sources */,
+				CC0A7D192379E9B900745D5E /* Util.swift in Sources */,
 				CCFC6203236070D0007B587D /* ViewController.swift in Sources */,
 				CCFC6209236070D0007B587D /* FastQ.xcdatamodeld in Sources */,
 				CCFC6201236070D0007B587D /* AppDelegate.swift in Sources */,
+				CC303BB22379C15C0023E958 /* SPListController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +395,7 @@
 		};
 		CCFC6213236070D5007B587D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 949F94305E46101F643F9E06 /* Pods-FastQ.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +414,7 @@
 		};
 		CCFC6214236070D5007B587D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D20C841E08D75180CC448BC9 /* Pods-FastQ.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
