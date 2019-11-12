@@ -11,9 +11,20 @@
 		CC0A7D192379E9B900745D5E /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0A7D182379E9B900745D5E /* Util.swift */; };
 		CC0A7D1B2379EE2E00745D5E /* keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0A7D1A2379EE2E00745D5E /* keys.swift */; };
 		CC0A7D1E2379EFC700745D5E /* QueueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0A7D1D2379EFC700745D5E /* QueueModel.swift */; };
+		CC0A7D22237B24A900745D5E /* ServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0A7D21237B24A900745D5E /* ServiceController.swift */; };
+		CC0A7D25237B253600745D5E /* ServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0A7D24237B253600745D5E /* ServiceCell.swift */; };
+		CC0A7D27237B30AE00745D5E /* SPHomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0A7D26237B30AE00745D5E /* SPHomePageController.swift */; };
 		CC0CF5B623630D7400360A6F /* pageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0CF5B523630D7400360A6F /* pageController.swift */; };
 		CC0CF5B82363561700360A6F /* lang.strings in Resources */ = {isa = PBXBuildFile; fileRef = CC0CF5B72363561700360A6F /* lang.strings */; };
 		CC303BB22379C15C0023E958 /* SPListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC303BB12379C15C0023E958 /* SPListController.swift */; };
+		CC9CC459237B47C7001125A5 /* SPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9CC458237B47C7001125A5 /* SPModel.swift */; };
+		CC9CC45B237B5AA2001125A5 /* SPInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9CC45A237B5AA2001125A5 /* SPInfoController.swift */; };
+		CC9CC45D237B5F24001125A5 /* SPBookingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9CC45C237B5F24001125A5 /* SPBookingController.swift */; };
+		CC9CC45F237B6259001125A5 /* SPBookingDoneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9CC45E237B6259001125A5 /* SPBookingDoneController.swift */; };
+		CC9CC461237B7096001125A5 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9CC460237B7096001125A5 /* Database.swift */; };
+		CC9CC464237B715B001125A5 /* DBKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9CC463237B715B001125A5 /* DBKeys.swift */; };
+		CC9CC466237B75DE001125A5 /* SPBookingADController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9CC465237B75DE001125A5 /* SPBookingADController.swift */; };
+		CC9CC468237B75F9001125A5 /* SPBookingADVDoneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9CC467237B75F9001125A5 /* SPBookingADVDoneController.swift */; };
 		CCFC6201236070D0007B587D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFC6200236070D0007B587D /* AppDelegate.swift */; };
 		CCFC6203236070D0007B587D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFC6202236070D0007B587D /* ViewController.swift */; };
 		CCFC6206236070D0007B587D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCFC6204236070D0007B587D /* Main.storyboard */; };
@@ -28,9 +39,20 @@
 		CC0A7D182379E9B900745D5E /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		CC0A7D1A2379EE2E00745D5E /* keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keys.swift; sourceTree = "<group>"; };
 		CC0A7D1D2379EFC700745D5E /* QueueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueModel.swift; sourceTree = "<group>"; };
+		CC0A7D21237B24A900745D5E /* ServiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceController.swift; sourceTree = "<group>"; };
+		CC0A7D24237B253600745D5E /* ServiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCell.swift; sourceTree = "<group>"; };
+		CC0A7D26237B30AE00745D5E /* SPHomePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPHomePageController.swift; sourceTree = "<group>"; };
 		CC0CF5B523630D7400360A6F /* pageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pageController.swift; sourceTree = "<group>"; };
 		CC0CF5B72363561700360A6F /* lang.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = lang.strings; sourceTree = "<group>"; };
 		CC303BB12379C15C0023E958 /* SPListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPListController.swift; sourceTree = "<group>"; };
+		CC9CC458237B47C7001125A5 /* SPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPModel.swift; sourceTree = "<group>"; };
+		CC9CC45A237B5AA2001125A5 /* SPInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPInfoController.swift; sourceTree = "<group>"; };
+		CC9CC45C237B5F24001125A5 /* SPBookingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPBookingController.swift; sourceTree = "<group>"; };
+		CC9CC45E237B6259001125A5 /* SPBookingDoneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPBookingDoneController.swift; sourceTree = "<group>"; };
+		CC9CC460237B7096001125A5 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		CC9CC463237B715B001125A5 /* DBKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBKeys.swift; sourceTree = "<group>"; };
+		CC9CC465237B75DE001125A5 /* SPBookingADController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPBookingADController.swift; sourceTree = "<group>"; };
+		CC9CC467237B75F9001125A5 /* SPBookingADVDoneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPBookingADVDoneController.swift; sourceTree = "<group>"; };
 		CCFC61FD236070D0007B587D /* FastQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFC6200236070D0007B587D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCFC6202236070D0007B587D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,13 +97,45 @@
 			isa = PBXGroup;
 			children = (
 				CC0A7D1D2379EFC700745D5E /* QueueModel.swift */,
+				CC9CC458237B47C7001125A5 /* SPModel.swift */,
 			);
 			path = models;
+			sourceTree = "<group>";
+		};
+		CC0A7D1F237B245C00745D5E /* SP */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SP;
+			sourceTree = "<group>";
+		};
+		CC0A7D20237B246600745D5E /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				CC0A7D21237B24A900745D5E /* ServiceController.swift */,
+				CC0A7D26237B30AE00745D5E /* SPHomePageController.swift */,
+				CC9CC45A237B5AA2001125A5 /* SPInfoController.swift */,
+				CC9CC45C237B5F24001125A5 /* SPBookingController.swift */,
+				CC9CC45E237B6259001125A5 /* SPBookingDoneController.swift */,
+				CC9CC465237B75DE001125A5 /* SPBookingADController.swift */,
+				CC9CC467237B75F9001125A5 /* SPBookingADVDoneController.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		CC0A7D23237B251400745D5E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CC0A7D24237B253600745D5E /* ServiceCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		CC303BAF2379C10C0023E958 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CC0A7D20237B246600745D5E /* Client */,
+				CC0A7D1F237B245C00745D5E /* SP */,
 				CC303BB12379C15C0023E958 /* SPListController.swift */,
 			);
 			path = Controllers;
@@ -90,10 +144,20 @@
 		CC303BB02379C1280023E958 /* helpers */ = {
 			isa = PBXGroup;
 			children = (
+				CC9CC462237B7138001125A5 /* DB */,
 				CC0A7D182379E9B900745D5E /* Util.swift */,
 				CC0A7D1A2379EE2E00745D5E /* keys.swift */,
 			);
 			path = helpers;
+			sourceTree = "<group>";
+		};
+		CC9CC462237B7138001125A5 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				CC9CC460237B7096001125A5 /* Database.swift */,
+				CC9CC463237B715B001125A5 /* DBKeys.swift */,
+			);
+			path = DB;
 			sourceTree = "<group>";
 		};
 		CCFC61F4236070D0007B587D = {
@@ -117,6 +181,7 @@
 		CCFC61FF236070D0007B587D /* FastQ */ = {
 			isa = PBXGroup;
 			children = (
+				CC0A7D23237B251400745D5E /* Cells */,
 				CC0A7D1C2379EFA400745D5E /* models */,
 				CC303BB02379C1280023E958 /* helpers */,
 				CC303BAF2379C10C0023E958 /* Controllers */,
@@ -246,13 +311,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC0A7D22237B24A900745D5E /* ServiceController.swift in Sources */,
 				CC0A7D1B2379EE2E00745D5E /* keys.swift in Sources */,
+				CC9CC45F237B6259001125A5 /* SPBookingDoneController.swift in Sources */,
+				CC9CC466237B75DE001125A5 /* SPBookingADController.swift in Sources */,
 				CC0A7D1E2379EFC700745D5E /* QueueModel.swift in Sources */,
+				CC9CC464237B715B001125A5 /* DBKeys.swift in Sources */,
 				CC0CF5B623630D7400360A6F /* pageController.swift in Sources */,
+				CC9CC459237B47C7001125A5 /* SPModel.swift in Sources */,
 				CC0A7D192379E9B900745D5E /* Util.swift in Sources */,
+				CC9CC45B237B5AA2001125A5 /* SPInfoController.swift in Sources */,
 				CCFC6203236070D0007B587D /* ViewController.swift in Sources */,
+				CC9CC45D237B5F24001125A5 /* SPBookingController.swift in Sources */,
 				CCFC6209236070D0007B587D /* FastQ.xcdatamodeld in Sources */,
+				CC0A7D25237B253600745D5E /* ServiceCell.swift in Sources */,
+				CC0A7D27237B30AE00745D5E /* SPHomePageController.swift in Sources */,
+				CC9CC468237B75F9001125A5 /* SPBookingADVDoneController.swift in Sources */,
 				CCFC6201236070D0007B587D /* AppDelegate.swift in Sources */,
+				CC9CC461237B7096001125A5 /* Database.swift in Sources */,
 				CC303BB22379C15C0023E958 /* SPListController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

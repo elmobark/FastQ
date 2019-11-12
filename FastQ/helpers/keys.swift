@@ -8,7 +8,7 @@
 
 
 let AppLunch = "APP_LUNCH"
-enum Queues: String{
+enum QueuesKey: String{
     case CurrentQ = "Current_queue"
 }
 

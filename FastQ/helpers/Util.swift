@@ -9,30 +9,24 @@
 import Foundation
 import Alamofire
 class Util{
-   private func JsonDictionary(url: String,completion : @escaping (String)->())  {
-    var dat :String
+    private func JsonDictionary(url: String,completion : @escaping (String)->())  {
+    var _ :String
         Alamofire.request(url, method: .get)
-            
-            .response {response in
-                do {
-                    if let jsonArray = try JSONSerialization.jsonObject(with: response.data!, options : JSONSerialization.ReadingOptions.allowFragments) as JSONDecoder
-                        
-                    {
-                        dat = jsonArray
-                    } else {
-                        print("bad json")
-                    }
-                } catch let error as NSError {
-                    print(error)
+            .responseJSON { response in
+                
+                if let json = response.result.value as?String{
+                    completion(json)
                 }
-                completion(dat)
-        }
     }
-    func getCurrentQueue(completion : @escaping (QueueModel)->()){
-        JsonDictionary(url: Queues.CurrentQ.rawValue) {it in
-            
-            let queue = try? newJSONDecoder().decode(Queue.self, from: it)
-            completion
-        }
     }
+//    func getCurrentQueue(completion : @escaping (QueueModel)->()){
+//        JsonDictionary(url: <#T##String#>) { (it) in
+//            let jdata = try JSONEncoder().encode(it)
+//            let queue = try? JSONDecoder().decode(QueueModel.self, from: jdata)
+//        }
+//        JsonDictionary(url: Queues.CurrentQ.rawValue) { it in
+//
+//
+//        }
+//    }
 }
