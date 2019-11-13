@@ -1,5 +1,5 @@
 //
-//  SPBookingADController.swift
+//  MapController.swift
 //  FastQ
 //
 //  Created by Mobark on 13/11/2019.
@@ -8,18 +8,8 @@
 
 import UIKit
 
-class SPBookingADController: UIViewController ,UIPickerViewDataSource,UIPickerViewDelegate{
-    var SP:SPModel = SPModel()
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return SP.service.count
-    }
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return SP.service[row]
-    }
+class MapController: UIViewController {
+var SP:SPModel = SPModel()
     override func viewDidLoad() {
         super.viewDidLoad()
 

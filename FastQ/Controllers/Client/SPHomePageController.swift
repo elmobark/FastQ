@@ -53,10 +53,19 @@ class SPHomePageController: UIViewController,UIPickerViewDelegate,UIPickerViewDa
     }
     
     @IBAction func AdvanceBooking(_ sender: Any) {
+        let viewController = story.instantiateViewController(withIdentifier: "SPBookingAD") as! SPBookingADController
+        viewController.SP = SP
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     @IBAction func WaithingTime(_ sender: Any) {
+        let viewController = story.instantiateViewController(withIdentifier: "SPTime") as! TimeController
+        viewController.SP = SP
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     @IBAction func SPLocation(_ sender: Any) {
+        let viewController = story.instantiateViewController(withIdentifier: "SPMap") as! MapController
+        viewController.SP = SP
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     /*
