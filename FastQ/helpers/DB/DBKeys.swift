@@ -8,12 +8,6 @@
 
 import Foundation
 enum DBkeys: String{
-    case user = "TuSER"
-    case Photos = "Photos"
-    case News = "Posts"
-    case Videos = "Videos"
-    case Faqs = "Faqs"
-    case Hcenters = "Hcenters"
-    case Wayscenters = "Wayscenters"
-    case Ways = "Ways"
+    case users = "Users"
+    case sps = "SPs"
 }

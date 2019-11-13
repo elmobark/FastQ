@@ -13,7 +13,7 @@ class Database {
         let entity = NSEntityDescription.entity(forEntityName:  which , in: Context)
         return entity!
     }
-    func savetoDB(which: DBkeys , values:Dictionary<String,Any>) -> Bool {
+  private  func savetoDB(which: DBkeys , values:Dictionary<String,Any>) -> Bool {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let entity = AppEntry(which: which.rawValue, Context: context)
@@ -27,5 +27,26 @@ class Database {
         }catch{
             return false
         }
+    }
+   private func getfromDB(which: DBkeys) -> [Dictionary<String,Any>] {
+        var dicPlaceholder = [Dictionary<String,Any>]()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: which.rawValue)
+        request.returnsObjectsAsFaults = false
+        request.resultType =  NSFetchRequestResultType.dictionaryResultType
+        do {
+            dicPlaceholder = try context.fetch(request) as! [Dictionary<String,Any>]
+       
+        } catch {
+            print("Failed")
+        }
+        
+        
+        return dicPlaceholder
+    }
+    func saveUser(user:UserModel){
+        let dic : [String:Any] = ["id":0,"email":user.email,"password":user.password]
+        _ = savetoDB(which: DBkeys.users, values: dic)
     }
 }

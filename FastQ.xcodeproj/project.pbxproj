@@ -25,6 +25,9 @@
 		CC9CC464237B715B001125A5 /* DBKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9CC463237B715B001125A5 /* DBKeys.swift */; };
 		CC9CC466237B75DE001125A5 /* SPBookingADController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9CC465237B75DE001125A5 /* SPBookingADController.swift */; };
 		CC9CC468237B75F9001125A5 /* SPBookingADVDoneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9CC467237B75F9001125A5 /* SPBookingADVDoneController.swift */; };
+		CC9CC46A237B7885001125A5 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9CC469237B7885001125A5 /* UserModel.swift */; };
+		CC9CC46C237B7CB1001125A5 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9CC46B237B7CB1001125A5 /* LoginController.swift */; };
+		CC9CC46E237B7CD2001125A5 /* ClientRegistryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9CC46D237B7CD2001125A5 /* ClientRegistryController.swift */; };
 		CCFC6201236070D0007B587D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFC6200236070D0007B587D /* AppDelegate.swift */; };
 		CCFC6203236070D0007B587D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFC6202236070D0007B587D /* ViewController.swift */; };
 		CCFC6206236070D0007B587D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCFC6204236070D0007B587D /* Main.storyboard */; };
@@ -53,6 +56,9 @@
 		CC9CC463237B715B001125A5 /* DBKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBKeys.swift; sourceTree = "<group>"; };
 		CC9CC465237B75DE001125A5 /* SPBookingADController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPBookingADController.swift; sourceTree = "<group>"; };
 		CC9CC467237B75F9001125A5 /* SPBookingADVDoneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPBookingADVDoneController.swift; sourceTree = "<group>"; };
+		CC9CC469237B7885001125A5 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		CC9CC46B237B7CB1001125A5 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		CC9CC46D237B7CD2001125A5 /* ClientRegistryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientRegistryController.swift; sourceTree = "<group>"; };
 		CCFC61FD236070D0007B587D /* FastQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFC6200236070D0007B587D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCFC6202236070D0007B587D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +104,7 @@
 			children = (
 				CC0A7D1D2379EFC700745D5E /* QueueModel.swift */,
 				CC9CC458237B47C7001125A5 /* SPModel.swift */,
+				CC9CC469237B7885001125A5 /* UserModel.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -119,6 +126,8 @@
 				CC9CC45E237B6259001125A5 /* SPBookingDoneController.swift */,
 				CC9CC465237B75DE001125A5 /* SPBookingADController.swift */,
 				CC9CC467237B75F9001125A5 /* SPBookingADVDoneController.swift */,
+				CC9CC46B237B7CB1001125A5 /* LoginController.swift */,
+				CC9CC46D237B7CD2001125A5 /* ClientRegistryController.swift */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -324,11 +333,14 @@
 				CCFC6203236070D0007B587D /* ViewController.swift in Sources */,
 				CC9CC45D237B5F24001125A5 /* SPBookingController.swift in Sources */,
 				CCFC6209236070D0007B587D /* FastQ.xcdatamodeld in Sources */,
+				CC9CC46E237B7CD2001125A5 /* ClientRegistryController.swift in Sources */,
+				CC9CC46C237B7CB1001125A5 /* LoginController.swift in Sources */,
 				CC0A7D25237B253600745D5E /* ServiceCell.swift in Sources */,
 				CC0A7D27237B30AE00745D5E /* SPHomePageController.swift in Sources */,
 				CC9CC468237B75F9001125A5 /* SPBookingADVDoneController.swift in Sources */,
 				CCFC6201236070D0007B587D /* AppDelegate.swift in Sources */,
 				CC9CC461237B7096001125A5 /* Database.swift in Sources */,
+				CC9CC46A237B7885001125A5 /* UserModel.swift in Sources */,
 				CC303BB22379C15C0023E958 /* SPListController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
