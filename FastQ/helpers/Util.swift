@@ -19,6 +19,18 @@ class Util{
                 }
     }
     }
+     static func Alert (contex: UIViewController , title: String , body: String){
+        let alert = UIAlertController(title: title, message: body, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: { (action) in
+            
+        }))
+        contex.present(alert, animated: true, completion: nil)
+    }
+    func AlertWhitAction (contex: UIViewController , title: String , body: String ,actionTitle:String, code: @escaping ((UIAlertAction) ->Void)){
+        let alert = UIAlertController(title: title, message: body, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: actionTitle, style: UIAlertActionStyle.default, handler: code))
+        contex.present(alert, animated: true, completion: nil)
+    }
 //    func getCurrentQueue(completion : @escaping (QueueModel)->()){
 //        JsonDictionary(url: <#T##String#>) { (it) in
 //            let jdata = try JSONEncoder().encode(it)

@@ -278,7 +278,7 @@
         <!--client login-->
         <scene sceneID="BCu-ng-ldP">
             <objects>
-                <viewController title="client login" id="rns-pc-7Bi" sceneMemberID="viewController">
+                <viewController title="client login" id="rns-pc-7Bi" customClass="LoginController" customModule="FastQ" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="csD-p6-Q7o">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -344,7 +344,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="wfK-hb-53Q" kind="show" id="dKo-i2-XFf"/>
+                                    <action selector="checkUser:" destination="rns-pc-7Bi" eventType="touchUpInside" id="TUB-aW-t1F"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -362,6 +362,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kCe-Yh-TaY"/>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="Evf-Fw-sGB" id="qSb-9m-xS4"/>
+                        <outlet property="password" destination="6Gf-YS-6hG" id="lAE-sh-upY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xks-wy-Ntc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -370,7 +374,7 @@
         <!--Main-->
         <scene sceneID="G1H-v0-v2z">
             <objects>
-                <viewController title="Main" id="wfK-hb-53Q" customClass="ServiceController" customModule="FastQ" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SVC" storyboardIdentifier="SVC" title="Main" id="wfK-hb-53Q" customClass="ServiceController" customModule="FastQ" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ea6-B7-2ms">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -778,7 +782,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to FastQ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Tj-oc-dby">
-                                <rect key="frame" x="69" y="117" width="275" height="149"/>
+                                <rect key="frame" x="69" y="117" width="236" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="aCz-45-CV9"/>
                                     <constraint firstAttribute="width" constant="236" id="eYu-Tg-g0K"/>
@@ -788,7 +792,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GND-A7-Dqp">
-                                <rect key="frame" x="16" y="516" width="382" height="30"/>
+                                <rect key="frame" x="16" y="403" width="343" height="30"/>
                                 <color key="backgroundColor" red="0.45890522880000001" green="0.27962842249999997" blue="0.39045408459999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="cs9-xg-LHf"/>
@@ -802,7 +806,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already having account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fii-ff-iCX">
-                                <rect key="frame" x="59" y="625" width="227" height="21"/>
+                                <rect key="frame" x="59" y="512" width="188" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="188" id="Sul-ui-SVp"/>
                                     <constraint firstAttribute="height" constant="21" id="nTO-Xp-whZ"/>
@@ -812,7 +816,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUk-Nn-StJ">
-                                <rect key="frame" x="292" y="620" width="38" height="30"/>
+                                <rect key="frame" x="253" y="507" width="38" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="38" id="Aiz-6z-mfb"/>
                                     <constraint firstAttribute="height" constant="30" id="yKw-vG-57f"/>
@@ -823,7 +827,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHf-ab-HiF">
-                                <rect key="frame" x="20" y="564" width="382" height="30"/>
+                                <rect key="frame" x="20" y="451" width="343" height="30"/>
                                 <color key="backgroundColor" red="0.45890522880000001" green="0.27962842249999997" blue="0.39045408459999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="4YS-XD-m6w"/>
@@ -873,7 +877,7 @@
         <!--Client Sign up-->
         <scene sceneID="Elq-Rz-qAB">
             <objects>
-                <viewController title="Client Sign up" id="Dt4-1N-zUe" sceneMemberID="viewController">
+                <viewController title="Client Sign up" id="Dt4-1N-zUe" customClass="ClientRegistryController" customModule="FastQ" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" ambiguous="YES" id="9WO-od-ti3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1215,7 +1219,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2qf-we-1SP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1131.8840579710145" y="1496.7391304347827"/>
+            <point key="canvasLocation" x="1132" y="1626"/>
         </scene>
         <!--Home-->
         <scene sceneID="ATq-80-9Mr">
@@ -1356,6 +1360,6 @@
         <image name="timthumb" width="1500" height="963"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tWZ-NT-Wsc"/>
+        <segue reference="cDh-wl-Zir"/>
     </inferredMetricsTieBreakers>
 </document>

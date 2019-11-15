@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserModel: Codable{
+struct UserModel: Codable{
     var email:String = ""
     var password:String = ""
     init(email:String , password:String) {

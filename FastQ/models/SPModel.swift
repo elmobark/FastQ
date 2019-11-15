@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SPModel: NSObject {
+struct SPModel{
     var name:String = ""
     var logo :UIImage = UIImage()
     var service:[String] = [String]()
@@ -18,7 +18,7 @@ class SPModel: NSObject {
     var website:String = ""
     var Location:String = ""
     var id : Int = 0
-    override init() {
+    init() {
         
     }
     init(name:String , logo:UIImage , service:[String],about:String,workTime:String,phone:String,website:String,Location:String,id:Int) {

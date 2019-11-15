@@ -30,6 +30,8 @@ class SPHomePageController: UIViewController,UIPickerViewDelegate,UIPickerViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         SPimgView.image = SP.logo
+        
+       
         // Do any additional setup after loading the view.
     }
 

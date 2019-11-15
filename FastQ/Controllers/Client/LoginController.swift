@@ -9,19 +9,32 @@
 import UIKit
 
 class LoginController: UIViewController {
-
+var story: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
+    @IBOutlet weak var email: UITextField!
+    
+    @IBOutlet weak var password: UITextField!
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func checkUser(_ sender: Any) {
+        let user = UserModel(email: email.text!, password: password.text!)
+        
+        if Database().checkUser(usermodel: user){
+            let dash = story.instantiateViewController(withIdentifier: "SVC") as! ServiceController
+            self.navigationController?.pushViewController(dash, animated: true)
+        } else {
+            Util.Alert(contex: self, title: "Sorry", body: "check the email and password and try agine")
+        }
+       
+    }
+    
     /*
     // MARK: - Navigation
 
