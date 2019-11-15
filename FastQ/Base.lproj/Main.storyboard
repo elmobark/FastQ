@@ -303,7 +303,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tew-wp-hyr">
                                 <rect key="frame" x="0.0" y="64" width="414" height="42"/>
@@ -921,7 +921,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeat password*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Av-XL-P3G">
                                 <rect key="frame" x="44" y="270" width="305" height="30"/>
@@ -930,7 +930,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceW-3c-sWq">
                                 <rect key="frame" x="36" y="388" width="343" height="30"/>
@@ -942,6 +942,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="Registry:" destination="Dt4-1N-zUe" eventType="touchUpInside" id="QyQ-DS-j8W"/>
                                     <segue destination="7AD-Gs-V63" kind="show" id="cMP-hI-3x0"/>
                                 </connections>
                             </button>
@@ -972,6 +973,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="crr-nn-IJG"/>
                     </view>
+                    <connections>
+                        <outlet property="checkpassword" destination="7Av-XL-P3G" id="xOV-He-ysb"/>
+                        <outlet property="email" destination="0gj-cZ-abG" id="ZgL-CU-RPI"/>
+                        <outlet property="password" destination="PXI-74-YeO" id="LS3-Aj-Gpu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qPm-za-3Ft" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

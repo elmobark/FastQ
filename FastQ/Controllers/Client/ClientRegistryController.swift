@@ -10,12 +10,25 @@ import UIKit
 
 class ClientRegistryController: UIViewController {
 
+    @IBOutlet weak var checkpassword: UITextField!
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var email: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func Registry(_ sender: Any) {
+        if password.text == checkpassword.text{
+        
+            let user:UserModel = UserModel(email: email.text!, password: password.text!)
+            if  Database().saveUser(user: user){
+                Util.Alert(contex: self, title: "Done", body: "User Regisrted")
+            }
+            
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

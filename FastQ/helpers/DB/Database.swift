@@ -45,9 +45,9 @@ class Database {
         
         return dicPlaceholder
     }
-    func saveUser(user:UserModel){
+    func saveUser(user:UserModel) -> Bool{
         let dic : [String:Any] = ["id":0,"email":user.email,"password":user.password]
-        _ = savetoDB(which: DBkeys.users, values: dic)
+        return savetoDB(which: DBkeys.users, values: dic)
     }
     func checkUser(usermodel:UserModel) -> Bool {
         var isExist = false
@@ -55,12 +55,15 @@ class Database {
         check : for user in users {
             if user["email"] as! String == usermodel.email{
                 if user["password"] as! String == usermodel.password{
+                     isExist = true
                     break check
-                   isExist = true
                 }
                 
             }
         }
         return isExist
+    }
+    func addQueue(queue:QueueModel){
+        
     }
 }
