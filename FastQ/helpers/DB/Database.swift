@@ -45,9 +45,42 @@ class Database {
         
         return dicPlaceholder
     }
+    func genID(which:DBkeys) -> Int {
+        let db = getfromDB(which:which);
+        if db.count == 0 {
+            return 0
+        }else{
+            return (db[db.count-1]["id"] as? Int)! + 1
+        }
+        
+    }
     func saveUser(user:UserModel) -> Bool{
-        let dic : [String:Any] = ["id":0,"email":user.email,"password":user.password]
-        return savetoDB(which: DBkeys.users, values: dic)
+        if checkUser(usermodel: user){
+            return false
+        }else{
+            let dic : [String:Any] = ["id":genID(which: .users),"email":user.email,"password":user.password]
+            return savetoDB(which: DBkeys.users, values: dic)
+        }
+        
+    }
+    func addQueue(queue:QueueModel) -> Bool {
+        let insert : [String:Any] = ["id":genID(which: .queues),"sp":Util().FlipToTicket(id: queue.sp),"time":queue.time,"type":queue.type]
+        return savetoDB(which: .queues, values: insert)
+    }
+    func getTotaleTime() -> Int {
+        let getData = getfromDB(which: .queues)
+        var time = 0
+        for item in getData {
+            time += Int(item["time"] as! String)!
+        }
+        return time
+    }
+    func getQueue() -> QueueModel {
+        let getData = getfromDB(which: .queues)
+        let lastitem = getData[getData.count-1]
+        print("data is \(lastitem)")
+        let model = QueueModel(id: (lastitem["id"] as? Int)!.description, sp: (lastitem["sp"] as? String)!, time: (lastitem["time"] as? String)!, type: (lastitem["type"] as? String)!)
+        return model
     }
     func checkUser(usermodel:UserModel) -> Bool {
         var isExist = false
@@ -64,6 +97,20 @@ class Database {
         return isExist
     }
     func addQueue(queue:QueueModel){
+        
+    }
+    func saveSP(sp:SPModel)->Bool{
+        let imgData = sp.logo.cgImage?.dataProvider?.data! as! Data
+        let dic : [String:Any] = ["id":sp.id,"logo":imgData,"name":sp.name,"location":sp.Location,"phone":sp.phone,"about":sp.about,"services":sp.service,"website":sp.website,"worktime":sp.workTime]
+        return savetoDB(which: .sps, values: dic)
+    }
+    func getSPs()->[SPModel]{
+        let dic = getfromDB(which: .sps)
+        var SPs:[SPModel] = []
+        for sp in dic {
+            SPs.append(SPModel(dic: sp))
+        }
+        return SPs
         
     }
 }

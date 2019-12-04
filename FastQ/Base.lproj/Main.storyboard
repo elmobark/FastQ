@@ -60,7 +60,7 @@
         <!--SP Sign up-->
         <scene sceneID="PBc-l8-Zx0">
             <objects>
-                <viewController title="SP Sign up" id="d6c-ZH-nZs" sceneMemberID="viewController">
+                <viewController title="SP Sign up" id="d6c-ZH-nZs" customClass="SPRegistryController" customModule="FastQ" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nPj-6f-3MS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -630,6 +630,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="pbs-ho-WVM"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="9Vl-xI-4U5" id="EME-fC-knr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7Q-sU-Qdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -698,8 +701,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="Book:" destination="TkK-Y6-yc3" eventType="touchUpInside" id="idb-Mj-87h"/>
-                                    <segue destination="WO5-se-Tdp" kind="show" id="Q4c-JA-I94"/>
+                                    <action selector="Book:" destination="TkK-Y6-yc3" eventType="touchUpInside" id="S92-tB-drj"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -763,7 +765,7 @@
                         <viewLayoutGuide key="safeArea" id="mJX-He-7zT"/>
                     </view>
                     <connections>
-                        <outlet property="logo" destination="hZ7-Pm-Sjs" id="CSs-z0-5N5"/>
+                        <outlet property="logo" destination="hZ7-Pm-Sjs" id="ND1-pF-dkZ"/>
                         <outlet property="number" destination="VQw-XQ-kI7" id="SLC-N3-LXZ"/>
                         <outlet property="ticket" destination="bb4-fx-5Pu" id="iP8-cK-HKm"/>
                         <outlet property="time" destination="jNa-tZ-tzQ" id="jn1-Y9-IWH"/>
@@ -883,7 +885,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AFa-Q8-axe">
-                                <rect key="frame" x="0.0" y="64" width="375" height="111"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="155"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="New account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c80-cr-4DB">
                                         <rect key="frame" x="137" y="10" width="101" height="21"/>
@@ -906,7 +908,7 @@
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0gj-cZ-abG">
-                                <rect key="frame" x="44" y="183" width="305" height="30"/>
+                                <rect key="frame" x="44" y="227" width="305" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Pho-6k-dUQ"/>
                                 </constraints>
@@ -915,7 +917,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose password*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PXI-74-YeO">
-                                <rect key="frame" x="44" y="226" width="305" height="30"/>
+                                <rect key="frame" x="44" y="270" width="305" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="1KS-5K-mLE"/>
                                 </constraints>
@@ -924,7 +926,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeat password*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Av-XL-P3G">
-                                <rect key="frame" x="44" y="270" width="305" height="30"/>
+                                <rect key="frame" x="44" y="314" width="305" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="S83-iW-E7P"/>
                                 </constraints>
@@ -1348,16 +1350,10 @@
                         <color key="backgroundColor" red="0.93548279999999995" green="0.95021229979999999" blue="0.97052997350000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="eRX-b9-5J3"/>
                     </view>
-                    <connections>
-                        <outlet property="logo" destination="45R-e6-Zrj" id="dmp-Y0-UMl"/>
-                        <outlet property="number" destination="wvx-7C-GL9" id="siZ-cf-Wld"/>
-                        <outlet property="ticket" destination="FeJ-yG-cIj" id="YFI-gK-FzU"/>
-                        <outlet property="time" destination="g4B-lT-3hw" id="9yx-y9-kWd"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XRe-jB-EZr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3532" y="3151"/>
+            <point key="canvasLocation" x="3887" y="3152"/>
         </scene>
     </scenes>
     <resources>

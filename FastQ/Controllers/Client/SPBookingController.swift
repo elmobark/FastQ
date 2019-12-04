@@ -11,6 +11,8 @@ import UIKit
 class SPBookingController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
     @IBOutlet weak var logo: UIImageView!
     var SP:SPModel = SPModel()
+    var story: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    var service = ""
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -21,7 +23,9 @@ class SPBookingController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return SP.service[row]
     }
-
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        service = SP.service[row]
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,6 +37,14 @@ class SPBookingController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
         // Dispose of any resources that can be recreated.
     }
     @IBAction func Book(_ sender: Any) {
+        let queue = QueueModel(id: "", sp: SP.id.description, time: "1800", type: service)
+        if Database().addQueue(queue: queue) {
+            let viewController = story.instantiateViewController(withIdentifier: "SPBookingDone") as! SPBookingDoneController
+            viewController.SP = SP
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }else{
+            print("Error")
+        }
     }
     
 

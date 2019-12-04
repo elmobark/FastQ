@@ -16,6 +16,7 @@
 		CC0A7D27237B30AE00745D5E /* SPHomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0A7D26237B30AE00745D5E /* SPHomePageController.swift */; };
 		CC0CF5B623630D7400360A6F /* pageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0CF5B523630D7400360A6F /* pageController.swift */; };
 		CC0CF5B82363561700360A6F /* lang.strings in Resources */ = {isa = PBXBuildFile; fileRef = CC0CF5B72363561700360A6F /* lang.strings */; };
+		CC11649D23835C7B00E0DAE4 /* SPRegistryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC11649C23835C7B00E0DAE4 /* SPRegistryController.swift */; };
 		CC303BB22379C15C0023E958 /* SPListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC303BB12379C15C0023E958 /* SPListController.swift */; };
 		CC7216B3237B989F007A7C5B /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7216B2237B989F007A7C5B /* MapController.swift */; };
 		CC7216B5237B999F007A7C5B /* TimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7216B4237B999F007A7C5B /* TimeController.swift */; };
@@ -30,6 +31,7 @@
 		CC9CC46A237B7885001125A5 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9CC469237B7885001125A5 /* UserModel.swift */; };
 		CC9CC46C237B7CB1001125A5 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9CC46B237B7CB1001125A5 /* LoginController.swift */; };
 		CC9CC46E237B7CD2001125A5 /* ClientRegistryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9CC46D237B7CD2001125A5 /* ClientRegistryController.swift */; };
+		CCABB73C2395F525005059A5 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCABB73B2395F525005059A5 /* Artwork.swift */; };
 		CCFC6201236070D0007B587D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFC6200236070D0007B587D /* AppDelegate.swift */; };
 		CCFC6203236070D0007B587D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFC6202236070D0007B587D /* ViewController.swift */; };
 		CCFC6206236070D0007B587D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCFC6204236070D0007B587D /* Main.storyboard */; };
@@ -49,6 +51,7 @@
 		CC0A7D26237B30AE00745D5E /* SPHomePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPHomePageController.swift; sourceTree = "<group>"; };
 		CC0CF5B523630D7400360A6F /* pageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pageController.swift; sourceTree = "<group>"; };
 		CC0CF5B72363561700360A6F /* lang.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = lang.strings; sourceTree = "<group>"; };
+		CC11649C23835C7B00E0DAE4 /* SPRegistryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPRegistryController.swift; sourceTree = "<group>"; };
 		CC303BB12379C15C0023E958 /* SPListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPListController.swift; sourceTree = "<group>"; };
 		CC7216B2237B989F007A7C5B /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		CC7216B4237B999F007A7C5B /* TimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeController.swift; sourceTree = "<group>"; };
@@ -63,6 +66,7 @@
 		CC9CC469237B7885001125A5 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		CC9CC46B237B7CB1001125A5 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		CC9CC46D237B7CD2001125A5 /* ClientRegistryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientRegistryController.swift; sourceTree = "<group>"; };
+		CCABB73B2395F525005059A5 /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
 		CCFC61FD236070D0007B587D /* FastQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFC6200236070D0007B587D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCFC6202236070D0007B587D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +120,7 @@
 		CC0A7D1F237B245C00745D5E /* SP */ = {
 			isa = PBXGroup;
 			children = (
+				CC11649C23835C7B00E0DAE4 /* SPRegistryController.swift */,
 			);
 			path = SP;
 			sourceTree = "<group>";
@@ -124,8 +129,8 @@
 			isa = PBXGroup;
 			children = (
 				CC0A7D21237B24A900745D5E /* ServiceController.swift */,
-				CC0A7D26237B30AE00745D5E /* SPHomePageController.swift */,
 				CC9CC45A237B5AA2001125A5 /* SPInfoController.swift */,
+				CC0A7D26237B30AE00745D5E /* SPHomePageController.swift */,
 				CC9CC45C237B5F24001125A5 /* SPBookingController.swift */,
 				CC9CC45E237B6259001125A5 /* SPBookingDoneController.swift */,
 				CC9CC465237B75DE001125A5 /* SPBookingADController.swift */,
@@ -162,6 +167,7 @@
 				CC9CC462237B7138001125A5 /* DB */,
 				CC0A7D182379E9B900745D5E /* Util.swift */,
 				CC0A7D1A2379EE2E00745D5E /* keys.swift */,
+				CCABB73B2395F525005059A5 /* Artwork.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -346,8 +352,10 @@
 				CC7216B3237B989F007A7C5B /* MapController.swift in Sources */,
 				CC0A7D27237B30AE00745D5E /* SPHomePageController.swift in Sources */,
 				CC9CC468237B75F9001125A5 /* SPBookingADVDoneController.swift in Sources */,
+				CCABB73C2395F525005059A5 /* Artwork.swift in Sources */,
 				CCFC6201236070D0007B587D /* AppDelegate.swift in Sources */,
 				CC9CC461237B7096001125A5 /* Database.swift in Sources */,
+				CC11649D23835C7B00E0DAE4 /* SPRegistryController.swift in Sources */,
 				CC9CC46A237B7885001125A5 /* UserModel.swift in Sources */,
 				CC303BB22379C15C0023E958 /* SPListController.swift in Sources */,
 			);

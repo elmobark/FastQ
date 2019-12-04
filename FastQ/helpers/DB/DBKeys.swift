@@ -10,4 +10,5 @@ import Foundation
 enum DBkeys: String{
     case users = "Users"
     case sps = "SPs"
+    case queues = "Queues"
 }

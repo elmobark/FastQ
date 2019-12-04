@@ -9,6 +9,41 @@
 import Foundation
 import Alamofire
 class Util{
+    var sec = 60
+    var timerLabel:UILabel? = nil
+    func FlipToTicket(id:String) -> String {
+        switch id {
+        case "0":do {
+           return "A"
+        }
+        case "1":do {
+            return "B"
+            }
+        case "2":do {
+            return "C"
+            }
+        case "3":do {
+            return "D"
+            }
+        default:
+            return "E"
+        }
+    }
+  
+    func timer(controller:UIViewController,label:UILabel,time:Int)  {
+        sec = time
+        Timer.scheduledTimer(timeInterval: 1, target: controller,   selector: (#selector(Util.updateTimer)), userInfo: nil, repeats: true)
+    }
+    @objc func updateTimer() {
+        sec -= 1
+        timerLabel?.text = "\(sec)"
+    }
+    func convertToMilli(timeIntervalSince1970: TimeInterval) -> Int64 {
+        return Int64(timeIntervalSince1970 * 1000)
+    }
+    func convertMilliToDate(milliseconds: Int64) -> Date {
+        return Date(timeIntervalSince1970: (TimeInterval(milliseconds) / 1000))
+    }
     private func JsonDictionary(url: String,completion : @escaping (String)->())  {
     var _ :String
         Alamofire.request(url, method: .get)

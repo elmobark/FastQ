@@ -7,12 +7,28 @@
 //
 
 import UIKit
-
+import MapKit
 class MapController: UIViewController {
 var SP:SPModel = SPModel()
+    @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+       
+        let initialLocation = CLLocation(latitude: SP.lat ,longitude: SP.lng)
+        
+        let regionRadius: CLLocationDistance = 1000
+        func centerMapOnLocation(location: CLLocation) {
+            let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+                                                                      regionRadius, regionRadius)
+            mapView.setRegion(coordinateRegion, animated: true)
+        }
+        centerMapOnLocation(location: initialLocation)
+        let artwork = Artwork(title: SP.name,
+                             locationName: SP.Location,
+                             discipline: SP.about,
+                             coordinate: CLLocationCoordinate2D(latitude: SP.lat, longitude: SP.lng))
+        mapView.addAnnotation(artwork)
         // Do any additional setup after loading the view.
     }
 
