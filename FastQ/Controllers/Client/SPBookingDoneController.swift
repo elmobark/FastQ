@@ -10,6 +10,7 @@ import UIKit
 
 class SPBookingDoneController: UIViewController {
     var SP:SPModel = SPModel()
+    var sec = 60
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var ticket: UILabel!
     @IBOutlet weak var number: UILabel!
@@ -19,9 +20,11 @@ class SPBookingDoneController: UIViewController {
         let q = Database().getQueue()
         let fulltime = Database().getTotaleTime()
         logo.image = SP.logo
-        ticket.text = "\(Util().FlipToTicket(id: SP.id.description))\(q.id)"
-        number.text = "\(Int(q.id)!+SP.id)"
-        Util().timer(controller: self, label: time,time: fulltime)
+        ticket.text = "Queue is :\(Util().FlipToTicket(id: SP.id.description))\(q.id)"
+        ticket.sizeToFit()
+        number.text = "number is : \(Int(q.id)!+SP.id)"
+        number.sizeToFit()
+        timer(timeinmil: fulltime)
         
         // Do any additional setup after loading the view.
     }
@@ -31,7 +34,15 @@ class SPBookingDoneController: UIViewController {
       
         // Dispose of any resources that can be recreated.
     }
-    
+    func timer(timeinmil:Int)  {
+        sec = timeinmil
+        Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
+    }
+    @objc func updateTimer() {
+        sec -= 1
+        time.text = "Waiting time : \(sec)"
+        time.sizeToFit()
+    }
 
     /*
     // MARK: - Navigation

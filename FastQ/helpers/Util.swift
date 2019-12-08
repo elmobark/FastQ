@@ -30,13 +30,14 @@ class Util{
         }
     }
   
-    func timer(controller:UIViewController,label:UILabel,time:Int)  {
-        sec = time
-        Timer.scheduledTimer(timeInterval: 1, target: controller,   selector: (#selector(Util.updateTimer)), userInfo: nil, repeats: true)
-    }
-    @objc func updateTimer() {
-        sec -= 1
-        timerLabel?.text = "\(sec)"
+    func inputDialog(contex: UIViewController,handler: @escaping (UIAlertAction)->Void){
+        let alert = UIAlertController(title: "FastQ", message: "Enter a Service", preferredStyle: .alert)
+ 
+        alert.addTextField { (textField) in
+            textField.placeholder = "Service Name"
+        }
+        alert.addAction(UIAlertAction(title: "add", style: .default, handler: handler))
+        contex.present(alert, animated: true, completion: nil)
     }
     func convertToMilli(timeIntervalSince1970: TimeInterval) -> Int64 {
         return Int64(timeIntervalSince1970 * 1000)
@@ -66,14 +67,8 @@ class Util{
         alert.addAction(UIAlertAction(title: actionTitle, style: UIAlertActionStyle.default, handler: code))
         contex.present(alert, animated: true, completion: nil)
     }
-//    func getCurrentQueue(completion : @escaping (QueueModel)->()){
-//        JsonDictionary(url: <#T##String#>) { (it) in
-//            let jdata = try JSONEncoder().encode(it)
-//            let queue = try? JSONDecoder().decode(QueueModel.self, from: jdata)
-//        }
-//        JsonDictionary(url: Queues.CurrentQ.rawValue) { it in
-//
-//
-//        }
-//    }
+
+    
+    
+
 }

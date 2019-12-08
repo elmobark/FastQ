@@ -1,26 +1,27 @@
 //
-//  SPBookingADController.swift
+//  SPLoginController.swift
 //  FastQ
 //
-//  Created by Mobark on 13/11/2019.
+//  Created by Mobark on 06/12/2019.
 //  Copyright © 2019 emobark. All rights reserved.
 //
 
 import UIKit
 
-class SPBookingADController: UIViewController ,UIPickerViewDataSource,UIPickerViewDelegate{
-    var SP:SPModel = SPModel()
-    var services:[ServiceModel] = []
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+class SPLoginController: UIViewController {
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var password: UITextField!
+    @IBAction func login(_ sender: UIButton) {
+        let admin = UserModel(email: email.text!, password: password.text!,name: "")
+        if Database().checkAdmin(adminmodel: admin) {
+            let sphome = getController(id: "SPDash") as! SPHomeController
+            sphome.admin = Database().getAdmin(adminmodel: admin)
+            goTo(controller: sphome)
+        }else{
+            Util.Alert(contex: self, title: "Sorry", body: "Account not found")
+        }
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return services.count
-    }
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return services[row].name
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

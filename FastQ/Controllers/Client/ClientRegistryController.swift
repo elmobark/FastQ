@@ -13,6 +13,7 @@ var story: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     @IBOutlet weak var checkpassword: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var name : UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -21,7 +22,7 @@ var story: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     @IBAction func Registry(_ sender: Any) {
         if password.text == checkpassword.text{
         
-            let user:UserModel = UserModel(email: email.text!, password: password.text!)
+            let user:UserModel = UserModel(email: email.text!, password: password.text!,name:name.text!)
             if  Database().saveUser(user: user){
                 let dash = story.instantiateViewController(withIdentifier: "SVC") as! ServiceController
                 self.navigationController?.pushViewController(dash, animated: true)

@@ -24,7 +24,7 @@ var story: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     }
     
     @IBAction func checkUser(_ sender: Any) {
-        let user = UserModel(email: email.text!, password: password.text!)
+        let user = UserModel(email: email.text!, password: password.text!,name: "")
         
         if Database().checkUser(usermodel: user){
             let dash = story.instantiateViewController(withIdentifier: "SVC") as! ServiceController

@@ -9,8 +9,9 @@
 import UIKit
 
 class SPHomePageController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
-   
+    var services:[ServiceModel] = []
     var SP:SPModel = SPModel()
+    @IBOutlet weak var picker:UIPickerView!
     @IBOutlet weak var ServNumber: UILabel!
     @IBOutlet weak var ServedNumber: UILabel!
     @IBOutlet weak var SPimgView: UIImageView!
@@ -20,18 +21,18 @@ class SPHomePageController: UIViewController,UIPickerViewDelegate,UIPickerViewDa
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return SP.service.count
+        return services.count
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return SP.service[row]
+        return services[row].name
     }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         SPimgView.image = SP.logo
-        
-       
+        services = Database().getService(id: SP.id)
+        picker.reloadAllComponents()
         // Do any additional setup after loading the view.
     }
 

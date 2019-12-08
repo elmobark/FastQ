@@ -13,13 +13,43 @@ class Database {
         let entity = NSEntityDescription.entity(forEntityName:  which , in: Context)
         return entity!
     }
+    private func update(which: DBkeys,id:String,new:Dictionary<String,Any>) -> Bool{
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let entity = AppEntry(which: which.rawValue, Context: context)
+        
+        let request = NSFetchRequest<NSFetchRequestResult>()
+        request.entity = entity
+        
+        let predicate = NSPredicate(format: "(id = %@)", id)
+        request.predicate = predicate
+        do {
+            let results =
+                try context.fetch(request)
+            let objectUpdate = results[0] as! NSManagedObject
+            objectUpdate.setValuesForKeys(new)
+            
+            do {
+                try context.save()
+                return true
+            }catch _ as NSError {
+                return false
+            }
+        }
+        catch _ as NSError {
+            return false
+        }
+
+    }
   private  func savetoDB(which: DBkeys , values:Dictionary<String,Any>) -> Bool {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let entity = AppEntry(which: which.rawValue, Context: context)
         let table = NSManagedObject(entity: entity, insertInto: context)
+    
         for (key,value) in values {
             table.setValue(value, forKey: key)
+            
         }
         do{
             try context.save()
@@ -45,7 +75,7 @@ class Database {
         
         return dicPlaceholder
     }
-    func genID(which:DBkeys) -> Int {
+    func genID(_ which:DBkeys) -> Int {
         let db = getfromDB(which:which);
         if db.count == 0 {
             return 0
@@ -58,13 +88,13 @@ class Database {
         if checkUser(usermodel: user){
             return false
         }else{
-            let dic : [String:Any] = ["id":genID(which: .users),"email":user.email,"password":user.password]
+            let dic : [String:Any] = ["id":genID(.users),"email":user.email,"password":user.password,"name":user.name]
             return savetoDB(which: DBkeys.users, values: dic)
         }
         
     }
     func addQueue(queue:QueueModel) -> Bool {
-        let insert : [String:Any] = ["id":genID(which: .queues),"sp":Util().FlipToTicket(id: queue.sp),"time":queue.time,"type":queue.type]
+        let insert : [String:Any] = ["id":genID(.queues),"sp":Util().FlipToTicket(id: queue.sp),"time":queue.time,"type":queue.type]
         return savetoDB(which: .queues, values: insert)
     }
     func getTotaleTime() -> Int {
@@ -96,13 +126,9 @@ class Database {
         }
         return isExist
     }
-    func addQueue(queue:QueueModel){
-        
-    }
+    /////////////////////////////////////////////////////////////////////////////////////admin side
     func saveSP(sp:SPModel)->Bool{
-        let imgData = sp.logo.cgImage?.dataProvider?.data! as! Data
-        let dic : [String:Any] = ["id":sp.id,"logo":imgData,"name":sp.name,"location":sp.Location,"phone":sp.phone,"about":sp.about,"services":sp.service,"website":sp.website,"worktime":sp.workTime]
-        return savetoDB(which: .sps, values: dic)
+        return savetoDB(which: .sps, values: sp.toDic())
     }
     func getSPs()->[SPModel]{
         let dic = getfromDB(which: .sps)
@@ -111,6 +137,61 @@ class Database {
             SPs.append(SPModel(dic: sp))
         }
         return SPs
+    }
+    func saveService(service:ServiceModel) -> Bool{
+        let dic:[String:Any] = ["id":service.id,"name":service.name,"to":service.to]
+        return savetoDB(which: .services, values: dic)
+    }
+    func getService(id:Int) -> [ServiceModel] {
+        let dic = getfromDB(which: .services)
+        var services:[ServiceModel] = []
+        for service in dic{
+            if service["to"] as! String == "\(id)"{
+                services.append(ServiceModel(id: service["id"] as! Int, name: service["name"] as! String, to: service["to"] as! String, isopen: (service["isopen"] != nil)))
+            }
+        }
+        return services
+    }
+    func updateService(service:ServiceModel) -> Bool {
+        return update(which: .services, id: "\(service.id)", new: service.toDic())
+    }
+    
+    /// save admin and staff to Database
+    ///
+    /// - Parameter admin: Admin model that we already genrate
+    /// - Returns: returns if data inserted or not
+    func saveAdmin(admin:AdminModel) -> Bool {
+        return savetoDB(which: .admins, values: [
+            "email":admin.email, "id":genID(.admins),"cardname":admin.cardname,"cardnumber":admin.cardnumber,"cardtype":admin.cardtype,"password":admin.password,"cvv":admin.cvv,"expirydate":admin.expirydate,"type":admin.type,"name":admin.name])
+    }
+    func checkAdmin(adminmodel:UserModel)->Bool{
+        var isExist = false
+        let admins = getfromDB(which: .admins)
+        check : for admin in admins {
+            if admin["email"] as! String == adminmodel.email{
+                if admin["password"] as! String == adminmodel.password{
+                    isExist = true
+                    break check
+                }
+                
+            }
+        }
+        return isExist
+    }
+    func getAdmin(adminmodel:UserModel) ->AdminModel{
+        var res = AdminModel()
+        let admins = getfromDB(which: .admins)
+        check : for admin in admins {
+            if admin["email"] as! String == adminmodel.email{
+                if admin["password"] as! String == adminmodel.password{
+                    res = AdminModel(dic:admin)
+                    break check
+                }
+                
+            }
+        }
+        return res
         
     }
+    
 }

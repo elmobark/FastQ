@@ -25,7 +25,7 @@ var SP:SPModel = SPModel()
         }
         centerMapOnLocation(location: initialLocation)
         let artwork = Artwork(title: SP.name,
-                             locationName: SP.Location,
+                             locationName: SP.name,
                              discipline: SP.about,
                              coordinate: CLLocationCoordinate2D(latitude: SP.lat, longitude: SP.lng))
         mapView.addAnnotation(artwork)

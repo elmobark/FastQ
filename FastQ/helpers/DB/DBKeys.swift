@@ -11,4 +11,6 @@ enum DBkeys: String{
     case users = "Users"
     case sps = "SPs"
     case queues = "Queues"
+    case admins = "Admins"
+    case services = "Services"
 }

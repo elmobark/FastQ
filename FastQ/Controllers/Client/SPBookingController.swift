@@ -10,7 +10,9 @@ import UIKit
 
 class SPBookingController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
     @IBOutlet weak var logo: UIImageView!
+    @IBOutlet weak var picker: UIPickerView!
     var SP:SPModel = SPModel()
+    var services:[ServiceModel] = []
     var story: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     var service = ""
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -18,17 +20,18 @@ class SPBookingController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return SP.service.count
+        return services.count
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return SP.service[row]
+        return services[row].name
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        service = SP.service[row]
+        service = services[row].name
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        services = Database().getService(id: SP.id)
+        picker.reloadAllComponents()
         // Do any additional setup after loading the view.
     }
 

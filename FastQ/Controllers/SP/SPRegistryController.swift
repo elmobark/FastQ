@@ -8,6 +8,14 @@
 
 import UIKit
 class SPRegistryController: UIViewController {
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var cardtype: UITextField!
+    @IBOutlet weak var cardnumber: UITextField!
+    @IBOutlet weak var cardname: UITextField!
+    @IBOutlet weak var cvv: UITextField!
+    @IBOutlet weak var expirydate: UITextField!
+    @IBOutlet weak var name: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,6 +24,17 @@ class SPRegistryController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    /// add user to database function
+    ///
+    /// - Parameter sender: sender data type by defualt is UIButton
+    @IBAction func sumbit(_ sender: UIButton) {
+        
+        if Database().saveAdmin(admin: AdminModel(cardname: cardname.text!, cardnumber: cardnumber.text!, cardtype: cardtype.text!, cvv: cvv.text!, expirydate: expirydate.text!, password: password.text!, email: email.text!, type: "Admin",name:name.text!)) {
+            
+            goTo(controller: getController(id: "SPSetup"))
+        }
     }
     /*
     // MARK: - Navigation
@@ -27,4 +46,13 @@ class SPRegistryController: UIViewController {
     }
     */
 
+}
+extension UIViewController{
+    func getController(id:String) -> UIViewController {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: id)
+    }
+    func goTo(controller:UIViewController) {
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
 }
