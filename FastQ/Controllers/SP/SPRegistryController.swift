@@ -31,7 +31,7 @@ class SPRegistryController: UIViewController {
     /// - Parameter sender: sender data type by defualt is UIButton
     @IBAction func sumbit(_ sender: UIButton) {
         
-        if Database().saveAdmin(admin: AdminModel(cardname: cardname.text!, cardnumber: cardnumber.text!, cardtype: cardtype.text!, cvv: cvv.text!, expirydate: expirydate.text!, password: password.text!, email: email.text!, type: "Admin",name:name.text!)) {
+        if Database().saveAdmin(admin: AdminModel(cardname: cardname.text!, cardnumber: cardnumber.text!, cardtype: cardtype.text!, cvv: cvv.text!, expirydate: expirydate.text!, password: password.text!, email: email.text!, type: "Admin",name:name.text!,admin:Database().genID(.admins))) {
             
             goTo(controller: getController(id: "SPSetup"))
         }

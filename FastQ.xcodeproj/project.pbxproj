@@ -38,6 +38,8 @@
 		CC9CC46E237B7CD2001125A5 /* ClientRegistryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9CC46D237B7CD2001125A5 /* ClientRegistryController.swift */; };
 		CCABB73C2395F525005059A5 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCABB73B2395F525005059A5 /* Artwork.swift */; };
 		CCB97770239C4F8C00942F2A /* addstaffController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB9776F239C4F8C00942F2A /* addstaffController.swift */; };
+		CCC02060239D831400DDE948 /* staffCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC0205F239D831400DDE948 /* staffCell.swift */; };
+		CCC02062239D840700DDE948 /* userQueueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC02061239D840700DDE948 /* userQueueCell.swift */; };
 		CCFC6201236070D0007B587D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFC6200236070D0007B587D /* AppDelegate.swift */; };
 		CCFC6203236070D0007B587D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFC6202236070D0007B587D /* ViewController.swift */; };
 		CCFC6206236070D0007B587D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCFC6204236070D0007B587D /* Main.storyboard */; };
@@ -79,6 +81,8 @@
 		CC9CC46D237B7CD2001125A5 /* ClientRegistryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientRegistryController.swift; sourceTree = "<group>"; };
 		CCABB73B2395F525005059A5 /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
 		CCB9776F239C4F8C00942F2A /* addstaffController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addstaffController.swift; sourceTree = "<group>"; };
+		CCC0205F239D831400DDE948 /* staffCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = staffCell.swift; sourceTree = "<group>"; };
+		CCC02061239D840700DDE948 /* userQueueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userQueueCell.swift; sourceTree = "<group>"; };
 		CCFC61FD236070D0007B587D /* FastQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFC6200236070D0007B587D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCFC6202236070D0007B587D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +169,8 @@
 			isa = PBXGroup;
 			children = (
 				CC0A7D24237B253600745D5E /* ServiceCell.swift */,
+				CCC0205F239D831400DDE948 /* staffCell.swift */,
+				CCC02061239D840700DDE948 /* userQueueCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -366,10 +372,12 @@
 				CC9CC45B237B5AA2001125A5 /* SPInfoController.swift in Sources */,
 				CCFC6203236070D0007B587D /* ViewController.swift in Sources */,
 				CC9CC45D237B5F24001125A5 /* SPBookingController.swift in Sources */,
+				CCC02062239D840700DDE948 /* userQueueCell.swift in Sources */,
 				CCFC6209236070D0007B587D /* FastQ.xcdatamodeld in Sources */,
 				CC9CC46E237B7CD2001125A5 /* ClientRegistryController.swift in Sources */,
 				CC9CC46C237B7CB1001125A5 /* LoginController.swift in Sources */,
 				CC0A7D25237B253600745D5E /* ServiceCell.swift in Sources */,
+				CCC02060239D831400DDE948 /* staffCell.swift in Sources */,
 				CCB97770239C4F8C00942F2A /* addstaffController.swift in Sources */,
 				CC7216B3237B989F007A7C5B /* MapController.swift in Sources */,
 				CC0A7D27237B30AE00745D5E /* SPHomePageController.swift in Sources */,

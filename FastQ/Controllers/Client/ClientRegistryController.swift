@@ -9,7 +9,7 @@
 import UIKit
 
 class ClientRegistryController: UIViewController {
-var story: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+
     @IBOutlet weak var checkpassword: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var email: UITextField!
@@ -20,12 +20,13 @@ var story: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     }
 
     @IBAction func Registry(_ sender: Any) {
+        print("create user button clicked")
         if password.text == checkpassword.text{
         
             let user:UserModel = UserModel(email: email.text!, password: password.text!,name:name.text!)
             if  Database().saveUser(user: user){
-                let dash = story.instantiateViewController(withIdentifier: "SVC") as! ServiceController
-                self.navigationController?.pushViewController(dash, animated: true)
+                let dash = getController(id: "SVC") as! ServiceController
+                goTo(controller: dash)
                 Util.Alert(contex: self, title: "Done", body: "User Regisrted")
             }else{
                 Util.Alert(contex: self, title: "Sorry", body: "User Already Exist!")

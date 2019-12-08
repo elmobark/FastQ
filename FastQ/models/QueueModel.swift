@@ -11,12 +11,15 @@ struct QueueModel: Codable{
     var sp: String  = ""
     var time: String = ""
     var type: String  = ""
-    
-    init(id:String , sp:String , time:String , type:String) {
+    var servedBy:String = ""
+    var serveTo:String = ""
+    init(id:String , sp:String , time:String , type:String,serveTo:String,servedBy:String) {
         self.id = id
         self.sp = sp
         self.time = time
         self.type = type
+        self.serveTo = serveTo
+        self.servedBy = servedBy
     }
     enum CodingKeys: String, CodingKey {
         case id = "id"

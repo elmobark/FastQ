@@ -20,7 +20,7 @@ var admin:AdminModel = AdminModel()
     }
 
     @IBAction func add(_ sender: Any) {
-        if Database().saveAdmin(admin: AdminModel(cardname: "null", cardnumber: "null", cardtype: "null", cvv: "null", expirydate: "null", password: password.text!, email: email.text!, type: "staff", name: name.text!)) {
+        if Database().saveAdmin(admin: AdminModel(cardname: "null", cardnumber: "null", cardtype: "null", cvv: "null", expirydate: "null", password: password.text!, email: email.text!, type: "staff", name: name.text!,admin:admin.admin)) {
             self.dismiss(animated: true, completion: nil)
             Util.Alert(contex: self, title: "Staff added", body: "\(name.text!) was added")
         }else{

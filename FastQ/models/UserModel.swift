@@ -17,4 +17,7 @@ struct UserModel: Codable{
         self.password = password
         self.name = name
     }
+    init() {
+        
+    }
 }

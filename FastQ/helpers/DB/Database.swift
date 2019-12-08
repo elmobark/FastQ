@@ -46,12 +46,13 @@ class Database {
         let context = appDelegate.persistentContainer.viewContext
         let entity = AppEntry(which: which.rawValue, Context: context)
         let table = NSManagedObject(entity: entity, insertInto: context)
-    
+    print("FAQ saving")
         for (key,value) in values {
             table.setValue(value, forKey: key)
-            
+            print("FAQ saving \(key) to \(value)")
         }
         do{
+            print("FAQ saving done")
             try context.save()
             return true
         }catch{
@@ -85,10 +86,14 @@ class Database {
         
     }
     func saveUser(user:UserModel) -> Bool{
+        print("FAQ start saving")
         if checkUser(usermodel: user){
+             print("FAQ error saving")
             return false
         }else{
+             print("FAQ start saving 2")
             let dic : [String:Any] = ["id":genID(.users),"email":user.email,"password":user.password,"name":user.name]
+            print("FAQ data:\(dic)")
             return savetoDB(which: DBkeys.users, values: dic)
         }
         
@@ -109,16 +114,20 @@ class Database {
         let getData = getfromDB(which: .queues)
         let lastitem = getData[getData.count-1]
         print("data is \(lastitem)")
-        let model = QueueModel(id: (lastitem["id"] as? Int)!.description, sp: (lastitem["sp"] as? String)!, time: (lastitem["time"] as? String)!, type: (lastitem["type"] as? String)!)
+       
+        let model = QueueModel(id: (lastitem["id"] as? Int)!.description, sp: (lastitem["sp"] as? String)!, time: (lastitem["time"] as? String)!, type: (lastitem["type"] as? String)!,serveTo:(lastitem["serveTo"] as? String)!,servedBy: (lastitem["servedBy"] as? String)!)
         return model
     }
     func checkUser(usermodel:UserModel) -> Bool {
         var isExist = false
+        print("FAQ start checking")
         let users = getfromDB(which: DBkeys.users)
+        
         check : for user in users {
             if user["email"] as! String == usermodel.email{
                 if user["password"] as! String == usermodel.password{
                      isExist = true
+                    print("FAQ checking")
                     break check
                 }
                 
@@ -139,7 +148,7 @@ class Database {
         return SPs
     }
     func saveService(service:ServiceModel) -> Bool{
-        let dic:[String:Any] = ["id":service.id,"name":service.name,"to":service.to]
+        let dic:[String:Any] = ["id":service.id,"name":service.name,"to":service.to,"isopen":service.isopen]
         return savetoDB(which: .services, values: dic)
     }
     func getService(id:Int) -> [ServiceModel] {

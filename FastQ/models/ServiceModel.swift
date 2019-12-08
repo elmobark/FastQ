@@ -12,6 +12,9 @@ struct ServiceModel {
     var name = ""
     var to = ""
     var isopen :Bool = false
+    init() {
+        
+    }
     init(id:Int,name:String,to:String,isopen:Bool) {
         self.id = id
         self.name = name

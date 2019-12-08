@@ -40,17 +40,16 @@ class SPSetupController: UIViewController,UIImagePickerControllerDelegate,UINavi
     }
    
     @IBAction func addService(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Some Title", message: "Enter a text", preferredStyle: .alert)
-        
+        let alert = UIAlertController(title: "Service", message: "Enter a name", preferredStyle: .alert)
         //2. Add the text field. You can configure it however you need.
         alert.addTextField { (textField) in
-            textField.text = "Some default text"
+            textField.placeholder = "Service name"
         }
         
         // 3. Grab the value from the text field, and print it when the user clicks OK.
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+        alert.addAction(UIAlertAction(title: "add", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
-            self.services.append(ServiceModel(id: Database().genID(.services)+self.services.count, name: (textField?.text)!, to: "\(Database().genID(.sps))"))
+            self.services.append(ServiceModel(id: Database().genID(.services)+self.services.count, name: (textField?.text)!, to: "\(Database().genID(.sps))", isopen: false))
             self.table.reloadData()
         }))
         
@@ -73,13 +72,14 @@ class SPSetupController: UIViewController,UIImagePickerControllerDelegate,UINavi
     }
     @IBAction func done(_ sender: UIButton) {
         let getLastSPId = Database().genID(.sps)
-        
-        let sp = SPModel(name: SPname.text!, logo: imagepreview.image!, about: about.text!, workTime: woktime.text!, phone: phonenumber.text!, website: website.text!, lat: Double(lat.text!)!, lng: Double(long.text!)!, id: getLastSPId)
+      
+        let sp = SPModel(name: SPname.text!, logo: imagepreview.image!, about: about.text!, workTime: woktime.text!, phone: phonenumber.text!, website: website.text!, lat: Double(lat.text!)!, lng: Double(long.text!)!, id: getLastSPId,admin:0)
         if Database().saveSP(sp: sp){
             for sm in services{
                 print(sm.to)
                 var service = sm
                 service.to = "\(sp.id)"
+                service.isopen = false
                 if Database().saveService(service: service){
                     Util.Alert(contex: self, title: "Done", body: "added")
                 }
