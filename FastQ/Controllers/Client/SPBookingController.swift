@@ -31,7 +31,7 @@ class SPBookingController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        services = Database().getService(id: SP.id)
+        services = Database().getService(id: SP.id).filter({return $0.isopen == true})
         picker.reloadAllComponents()
         // Do any additional setup after loading the view.
     }
@@ -41,10 +41,12 @@ class SPBookingController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
         // Dispose of any resources that can be recreated.
     }
     @IBAction func Book(_ sender: Any) {
-        let queue = QueueModel(id: "", sp: SP.id.description, time: "1800", type: service.name,serveTo:"",servedBy:"")
+        print("User From Booking \(User.name)")
+        let queue = QueueModel(id:0 , sp: SP.id.description, time: "1800", type: Util().FlipToTicket(id: SP.id.description),serveTo:User.id,servedBy:-1,service:service.id)
         if Database().addQueue(queue: queue) {
             let viewController = story.instantiateViewController(withIdentifier: "SPBookingDone") as! SPBookingDoneController
             viewController.SP = SP
+            viewController.Service = service
             self.navigationController?.pushViewController(viewController, animated: true)
         }else{
             print("Error")

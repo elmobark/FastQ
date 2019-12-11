@@ -36,10 +36,13 @@
 		CC9CC46A237B7885001125A5 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9CC469237B7885001125A5 /* UserModel.swift */; };
 		CC9CC46C237B7CB1001125A5 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9CC46B237B7CB1001125A5 /* LoginController.swift */; };
 		CC9CC46E237B7CD2001125A5 /* ClientRegistryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9CC46D237B7CD2001125A5 /* ClientRegistryController.swift */; };
+		CCA3164A23A08EA000810885 /* ticketmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA3164923A08EA000810885 /* ticketmodel.swift */; };
 		CCABB73C2395F525005059A5 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCABB73B2395F525005059A5 /* Artwork.swift */; };
 		CCB97770239C4F8C00942F2A /* addstaffController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB9776F239C4F8C00942F2A /* addstaffController.swift */; };
 		CCC02060239D831400DDE948 /* staffCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC0205F239D831400DDE948 /* staffCell.swift */; };
 		CCC02062239D840700DDE948 /* userQueueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC02061239D840700DDE948 /* userQueueCell.swift */; };
+		CCC02064239DF5DA00DDE948 /* cleintlistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC02063239DF5DA00DDE948 /* cleintlistController.swift */; };
+		CCC02066239DF62A00DDE948 /* showstaffController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC02065239DF62A00DDE948 /* showstaffController.swift */; };
 		CCFC6201236070D0007B587D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFC6200236070D0007B587D /* AppDelegate.swift */; };
 		CCFC6203236070D0007B587D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFC6202236070D0007B587D /* ViewController.swift */; };
 		CCFC6206236070D0007B587D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCFC6204236070D0007B587D /* Main.storyboard */; };
@@ -79,10 +82,13 @@
 		CC9CC469237B7885001125A5 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		CC9CC46B237B7CB1001125A5 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		CC9CC46D237B7CD2001125A5 /* ClientRegistryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientRegistryController.swift; sourceTree = "<group>"; };
+		CCA3164923A08EA000810885 /* ticketmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ticketmodel.swift; sourceTree = "<group>"; };
 		CCABB73B2395F525005059A5 /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
 		CCB9776F239C4F8C00942F2A /* addstaffController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addstaffController.swift; sourceTree = "<group>"; };
 		CCC0205F239D831400DDE948 /* staffCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = staffCell.swift; sourceTree = "<group>"; };
 		CCC02061239D840700DDE948 /* userQueueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userQueueCell.swift; sourceTree = "<group>"; };
+		CCC02063239DF5DA00DDE948 /* cleintlistController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cleintlistController.swift; sourceTree = "<group>"; };
+		CCC02065239DF62A00DDE948 /* showstaffController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showstaffController.swift; sourceTree = "<group>"; };
 		CCFC61FD236070D0007B587D /* FastQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFC6200236070D0007B587D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCFC6202236070D0007B587D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +137,7 @@
 				CC9CC469237B7885001125A5 /* UserModel.swift */,
 				CC65C0FD239AEA7200E05F3C /* AdminModel.swift */,
 				CC65C103239BF7BB00E05F3C /* ServiceModel.swift */,
+				CCA3164923A08EA000810885 /* ticketmodel.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -143,6 +150,8 @@
 				CC65C0FF239B2DF600E05F3C /* SPHomeController.swift */,
 				CC65C101239BD80600E05F3C /* SPSetupController.swift */,
 				CCB9776F239C4F8C00942F2A /* addstaffController.swift */,
+				CCC02063239DF5DA00DDE948 /* cleintlistController.swift */,
+				CCC02065239DF62A00DDE948 /* showstaffController.swift */,
 			);
 			path = SP;
 			sourceTree = "<group>";
@@ -369,6 +378,7 @@
 				CC9CC459237B47C7001125A5 /* SPModel.swift in Sources */,
 				CC0A7D192379E9B900745D5E /* Util.swift in Sources */,
 				CC65C0FC239AE90100E05F3C /* SPLoginController.swift in Sources */,
+				CCC02066239DF62A00DDE948 /* showstaffController.swift in Sources */,
 				CC9CC45B237B5AA2001125A5 /* SPInfoController.swift in Sources */,
 				CCFC6203236070D0007B587D /* ViewController.swift in Sources */,
 				CC9CC45D237B5F24001125A5 /* SPBookingController.swift in Sources */,
@@ -377,8 +387,10 @@
 				CC9CC46E237B7CD2001125A5 /* ClientRegistryController.swift in Sources */,
 				CC9CC46C237B7CB1001125A5 /* LoginController.swift in Sources */,
 				CC0A7D25237B253600745D5E /* ServiceCell.swift in Sources */,
+				CCA3164A23A08EA000810885 /* ticketmodel.swift in Sources */,
 				CCC02060239D831400DDE948 /* staffCell.swift in Sources */,
 				CCB97770239C4F8C00942F2A /* addstaffController.swift in Sources */,
+				CCC02064239DF5DA00DDE948 /* cleintlistController.swift in Sources */,
 				CC7216B3237B989F007A7C5B /* MapController.swift in Sources */,
 				CC0A7D27237B30AE00745D5E /* SPHomePageController.swift in Sources */,
 				CC65C104239BF7BB00E05F3C /* ServiceModel.swift in Sources */,

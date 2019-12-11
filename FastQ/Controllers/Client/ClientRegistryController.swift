@@ -23,9 +23,10 @@ class ClientRegistryController: UIViewController {
         print("create user button clicked")
         if password.text == checkpassword.text{
         
-            let user:UserModel = UserModel(email: email.text!, password: password.text!,name:name.text!)
+            let user:UserModel = UserModel(id:Database().genID(.users),email: email.text!, password: password.text!,name:name.text!)
             if  Database().saveUser(user: user){
                 let dash = getController(id: "SVC") as! ServiceController
+                dash.user = user
                 goTo(controller: dash)
                 Util.Alert(contex: self, title: "Done", body: "User Regisrted")
             }else{

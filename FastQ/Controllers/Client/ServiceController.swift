@@ -11,6 +11,7 @@ import UIKit
 class ServiceController: UIViewController , UITableViewDelegate , UITableViewDataSource{
     @IBOutlet weak var table: UITableView!
     var SPs:[SPModel] = []
+    var user = UserModel()
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        return SPs.count
     }
@@ -24,7 +25,7 @@ class ServiceController: UIViewController , UITableViewDelegate , UITableViewDat
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "SPHome") as! SPHomePageController
         viewController.SP = SPs[indexPath.row]
-      
+        viewController.user = user
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 

@@ -24,10 +24,13 @@ var story: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     }
     
     @IBAction func checkUser(_ sender: Any) {
-        let user = UserModel(email: email.text!, password: password.text!,name: "")
+        var user = UserModel(id:0,email: email.text!, password: password.text!,name: "")
         
         if Database().checkUser(usermodel: user){
+            user = Database().getUser(user: user)
+            print("User From login \(user.name)")
             let dash = story.instantiateViewController(withIdentifier: "SVC") as! ServiceController
+            dash.user = user
             self.navigationController?.pushViewController(dash, animated: true)
         } else {
             Util.Alert(contex: self, title: "Sorry", body: "check the email and password and try agine")

@@ -30,10 +30,13 @@ class SPRegistryController: UIViewController {
     ///
     /// - Parameter sender: sender data type by defualt is UIButton
     @IBAction func sumbit(_ sender: UIButton) {
-        
-        if Database().saveAdmin(admin: AdminModel(cardname: cardname.text!, cardnumber: cardnumber.text!, cardtype: cardtype.text!, cvv: cvv.text!, expirydate: expirydate.text!, password: password.text!, email: email.text!, type: "Admin",name:name.text!,admin:Database().genID(.admins))) {
-            
-            goTo(controller: getController(id: "SPSetup"))
+        let admin  = AdminModel(cardname: cardname.text!, cardnumber: cardnumber.text!, cardtype: cardtype.text!, cvv: cvv.text!, expirydate: expirydate.text!, password: password.text!, email: email.text!, type: "Admin",name:name.text!,admin:Database().genID(.admins))
+        if Database().saveAdmin(admin: admin) {
+            let setup = getController(id: "SPSetup") as! SPSetupController
+            setup.admin = Database().getAdmin(adminmodel: UserModel(id: 0,email: admin.email, password: admin.password, name: admin.name))
+            goTo(controller: setup)
+        }else{
+            Util.Alert(contex: self, title: "Sorry", body: "admin is already having account")
         }
     }
     /*

@@ -10,9 +10,13 @@ import UIKit
 
 class TimeController: UIViewController {
 var SP:SPModel = SPModel()
+    var Service:ServiceModel = ServiceModel()
+    var sec = 60
+    @IBOutlet weak var time: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let fulltime = Database().getTotaleTime(sp: Service)
+        timer(timeinmil: fulltime)
         // Do any additional setup after loading the view.
     }
 
@@ -20,8 +24,21 @@ var SP:SPModel = SPModel()
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
+    func timer(timeinmil:Int)  {
+        sec = timeinmil
+        Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
+    }
+    @objc func updateTimer() {
+        if sec <= 0 {
+            time.text = "Waiting time : -"
+            time.sizeToFit()
+        }else{
+            sec -= 1
+            time.text = "Waiting time : \(sec)"
+            time.sizeToFit()
+        }
+        
+    }
     /*
     // MARK: - Navigation
 

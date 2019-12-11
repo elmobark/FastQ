@@ -9,6 +9,7 @@
 import UIKit
 
 class SPSetupController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITableViewDelegate,UITableViewDataSource {
+    var admin:AdminModel = AdminModel()
     @IBOutlet weak var imagepreview: UIImageView!
     @IBOutlet weak var phonenumber: UITextField!
     @IBOutlet weak var about: UITextField!
@@ -73,15 +74,16 @@ class SPSetupController: UIViewController,UIImagePickerControllerDelegate,UINavi
     @IBAction func done(_ sender: UIButton) {
         let getLastSPId = Database().genID(.sps)
       
-        let sp = SPModel(name: SPname.text!, logo: imagepreview.image!, about: about.text!, workTime: woktime.text!, phone: phonenumber.text!, website: website.text!, lat: Double(lat.text!)!, lng: Double(long.text!)!, id: getLastSPId,admin:0)
+        let sp = SPModel(name: SPname.text!, logo: imagepreview.image!, about: about.text!, workTime: woktime.text!, phone: phonenumber.text!, website: website.text!, lat: Double(lat.text!)!, lng: Double(long.text!)!, id: getLastSPId,admin:admin.admin)
         if Database().saveSP(sp: sp){
             for sm in services{
-                print(sm.to)
                 var service = sm
-                service.to = "\(sp.id)"
+                service.to = "\(admin.admin)"
                 service.isopen = false
+                print("FAQ Service \(service.to) - \(service.name)")
                 if Database().saveService(service: service){
                     Util.Alert(contex: self, title: "Done", body: "added")
+                    navigationController?.popToRootViewController(animated: true)
                 }
             }
         }

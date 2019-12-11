@@ -13,7 +13,7 @@ struct AdminModel: Codable{
     var admin:Int = 0
     var cvv: String  = ""
     var expirydate = ""
-    var id = ""
+    var id = 0
     var password = ""
     var email = ""
     var type = ""
@@ -28,6 +28,7 @@ struct AdminModel: Codable{
         self.password = password
         self.email = email
         self.type = type
+        self.admin = admin
     }
     init(dic:[String:Any]) {
         self.cardname = dic["cardname"] as! String
@@ -40,6 +41,7 @@ struct AdminModel: Codable{
         self.email = dic["email"] as! String
         self.type = dic["type"] as! String
         self.admin = dic["admin"] as! Int
+        self.id = dic["id"] as! Int
     }
     init() {
         

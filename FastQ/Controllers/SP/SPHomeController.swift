@@ -33,6 +33,10 @@ class SPHomeController: UIViewController , UIPickerViewDelegate , UIPickerViewDa
         getServices()
     }
     @IBAction func showreports(_ sender: Any) {
+        let reports = getController(id: "SPShowStaff") as! showstaffController
+        reports.admin = admin
+        goTo(controller: reports)
+        
     }
     @IBAction func closequeue(_ sender: Any) {
         selectedservice.isopen = false
@@ -42,8 +46,26 @@ class SPHomeController: UIViewController , UIPickerViewDelegate , UIPickerViewDa
         getServices()
     }
     @IBAction func showclients(_ sender: Any) {
+        let clientlists = getController(id: "SPCL") as! cleintlistController
+       clientlists.service = selectedservice
+        goTo(controller: clientlists)
     }
     @IBAction func next(_ sender:Any){
+        print("next s1")
+        let queues = Database().getQueues().filter({$0.service == selectedservice.id})
+        print("next s2 \(queues.count)")
+        if !queues.isEmpty{
+            print("next s3")
+            var lastqueue = queues.first
+            lastqueue?.servedBy = admin.id
+            print("next s3")
+            if Database().updateQueue(queue: lastqueue!){
+                Util.Alert(contex: self, title: "Done", body: "Next Queue is Served")
+            }
+        }else{
+            Util.Alert(contex: self, title: "sorry", body: "there is no customer pick a queue yet")
+        }
+        
         
     }
     
@@ -63,6 +85,12 @@ class SPHomeController: UIViewController , UIPickerViewDelegate , UIPickerViewDa
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        let q = Database().getQueues().filter({return Int($0.sp) == selectedservice.id})
+        if q.count == 0{
+            print("free")
+        }else{
+            currentQueue.text = "\(q[q.count-1].id)"
+        }
         getServices()
         if admin.type != "Admin"{
             addstaffBT.isHidden = true
@@ -75,21 +103,9 @@ class SPHomeController: UIViewController , UIPickerViewDelegate , UIPickerViewDa
         // Do any additional setup after loading the view.
     }
     private func getServices(){
-        
-        
-        if admin.type != "Admin" {
-            services = Database().getService(id: admin.admin)
-            var tempservices:[ServiceModel] = []
-            for service in services {
-                if service.isopen{
-                    tempservices.append(service)
-                }
-            }
-            services = tempservices
-            
-        }else{
-            services = Database().getService(id: admin.admin)
-        }
+        print("FAQ \(admin.email) - \(admin.admin)")
+        services = admin.type == "Admin" ? Database().getService(id: admin.admin) : Database().getService(id: admin.admin).filter({return $0.isopen == true})
+      
         picker.reloadAllComponents()
         
         

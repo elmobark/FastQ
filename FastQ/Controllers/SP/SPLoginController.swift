@@ -12,7 +12,7 @@ class SPLoginController: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBAction func login(_ sender: UIButton) {
-        let admin = UserModel(email: email.text!, password: password.text!,name: "")
+        let admin = UserModel(id:0,email: email.text!, password: password.text!,name: "")
         if Database().checkAdmin(adminmodel: admin) {
             let sphome = getController(id: "SPDash") as! SPHomeController
             sphome.admin = Database().getAdmin(adminmodel: admin)

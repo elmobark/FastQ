@@ -10,6 +10,7 @@ import UIKit
 
 class SPBookingDoneController: UIViewController {
     var SP:SPModel = SPModel()
+    var Service:ServiceModel =  ServiceModel()
     var sec = 60
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var ticket: UILabel!
@@ -17,12 +18,16 @@ class SPBookingDoneController: UIViewController {
     @IBOutlet weak var time: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let q = Database().getQueue()
-        let fulltime = Database().getTotaleTime()
+        let q = Database().getQueues()
+        let fulltime = Database().getTotaleTime(sp: Service)
         logo.image = SP.logo
-        ticket.text = "Queue is :\(Util().FlipToTicket(id: SP.id.description))\(q.id)"
+        ticket.text = "Queue is :\(Util().FlipToTicket(id: SP.id.description))\(q[q.count-1].id)"
         ticket.sizeToFit()
-        number.text = "number is : \(Int(q.id)!+SP.id)"
+        if q.count == 0 {
+            number.text = "number is : \(1)"
+        }else{
+            number.text = "number is : \(q[q.count-1].id+Int(q[q.count-1].sp)!)"
+        }
         number.sizeToFit()
         timer(timeinmil: fulltime)
         
@@ -39,9 +44,15 @@ class SPBookingDoneController: UIViewController {
         Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
     }
     @objc func updateTimer() {
-        sec -= 1
-        time.text = "Waiting time : \(sec)"
-        time.sizeToFit()
+        if sec <= 0 {
+            time.text = "Waiting time : -"
+            time.sizeToFit()
+        }else{
+            sec -= 1
+            time.text = "Waiting time : \(sec)"
+            time.sizeToFit()
+        }
+       
     }
 
     /*
