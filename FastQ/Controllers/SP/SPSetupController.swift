@@ -84,6 +84,9 @@ class SPSetupController: UIViewController,UIImagePickerControllerDelegate,UINavi
                 if Database().saveService(service: service){
                     Util.Alert(contex: self, title: "Done", body: "added")
                     navigationController?.popToRootViewController(animated: true)
+                    self.dismiss(animated: true, completion: nil)
+                    
+                    
                 }
             }
         }

@@ -44,7 +44,7 @@ class SPBookingADVDoneController: UIViewController {
     }
     @objc func updateTimer() {
         if sec <= 0 {
-            time.text = "Waiting time : - "
+            time.text = "Waiting  time : - "
             time.sizeToFit()
         }else{
             sec -= 1
