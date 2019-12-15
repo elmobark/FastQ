@@ -19,6 +19,7 @@ class SPSetupController: UIViewController,UIImagePickerControllerDelegate,UINavi
     @IBOutlet weak var lat: UITextField!
     @IBOutlet weak var long: UITextField!
     @IBOutlet weak var woktime: UITextField!
+    @IBOutlet weak var theScrollView: UIScrollView!
     @IBOutlet weak var addService: UIButton!
     var services:[ServiceModel] = []
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -29,6 +30,7 @@ class SPSetupController: UIViewController,UIImagePickerControllerDelegate,UINavi
         picker.dismiss(animated: true, completion: nil)
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imagepreview.image = pickedImage
+            
         }else{
             print("Something went wrong!!")
         }
@@ -58,17 +60,47 @@ class SPSetupController: UIViewController,UIImagePickerControllerDelegate,UINavi
         self.present(alert, animated: true, completion: nil)
     }
     @IBAction func selectImg(_ sender: UIButton) {
-        let imagePicker =  UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.allowsEditing = true
-        imagePicker.sourceType = .photoLibrary
-        //imagePicker.sourceType = .PhotoLibrary
-        self.present(imagePicker, animated: true, completion: nil)
-        
+        let alert = UIAlertController(title: "Pick Image", message: "Pick a method", preferredStyle: .actionSheet)
+       
+        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "Local", style: .default, handler: {
+            handler in
+            
+            let imagePicker =  UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = .photoLibrary
+            //imagePicker.sourceType = .PhotoLibrary
+            self.present(imagePicker, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "By URL", style: .default, handler: {
+            handler in
+            let URLalert = UIAlertController(title: "Picker", message: "Image By URL", preferredStyle: .alert)
+            //2. Add the text field. You can configure it however you need.
+            URLalert.addTextField { (textField) in
+                textField.placeholder = "Image URL"
+            }
+            
+            // 3. Grab the value from the text field, and print it when the user clicks OK.
+            URLalert.addAction(UIAlertAction(title: "Done", style: .default, handler: { [weak URLalert] (_) in
+                let textField = URLalert?.textFields![0] // Force unwrapping because we know it exists.
+                self.imagepreview.downloaded(from: (textField?.text!)!)
+            }))
+            
+            // 4. Present the alert.
+            self.present(URLalert, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {
+            handler in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+         self.present(alert, animated: true, completion: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        closeKeyboardOnOutsideTap()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
         // Do any additional setup after loading the view.
     }
     @IBAction func done(_ sender: UIButton) {
@@ -96,16 +128,41 @@ class SPSetupController: UIViewController,UIImagePickerControllerDelegate,UINavi
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @objc func keyboardWillShow(notification:NSNotification){
+        //give room at the bottom of the scroll view, so it doesn't cover up anything the user needs to tap
+        var userInfo = notification.userInfo!
+        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        
+        var contentInset:UIEdgeInsets = self.theScrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height
+        theScrollView.contentInset = contentInset
     }
-    */
+    
+    @objc func keyboardWillHide(notification:NSNotification){
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        theScrollView.contentInset = contentInset
+    }
+   
 
+}
+extension UIImageView {
+    func downloaded(from url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {  // for swift 4.2 syntax just use ===> mode: UIView.ContentMode
+        contentMode = mode
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() {
+                self.image = image
+            }
+            }.resume()
+    }
+    func downloaded(from link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {  // for swift 4.2 syntax just use ===> mode: UIView.ContentMode
+        guard let url = URL(string: link) else { return }
+        downloaded(from: url, contentMode: mode)
+    }
 }

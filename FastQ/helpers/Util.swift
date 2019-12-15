@@ -29,7 +29,18 @@ class Util{
             return "E"
         }
     }
-  
+
+    func chosseDialog(contex: UIViewController , title: String , body: String ,actionTitle:String,chosses:[String], code: @escaping ((UIAlertAction) ->Void)) {
+        let alert = UIAlertController(title: title, message: body, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertActionWithAlertController(title: actionTitle, style: UIAlertActionStyle.default, handler: code))
+        let segments = UISegmentedControl(frame: CGRect(x: 17, y: 52, width: 270, height: 100))
+        for i in 0...chosses.count {
+            segments.insertSegment(withTitle: chosses[i], at: i, animated: true)
+        }
+        segments.selectedSegmentIndex = 0
+        alert.view.addSubview(segments)
+        contex.present(alert, animated: true, completion: nil)
+    }
     func inputDialog(contex: UIViewController,handler: @escaping (UIAlertAction)->Void){
         let alert = UIAlertController(title: "FastQ", message: "Enter a Service", preferredStyle: .alert)
  

@@ -18,6 +18,9 @@
 		CC0CF5B82363561700360A6F /* lang.strings in Resources */ = {isa = PBXBuildFile; fileRef = CC0CF5B72363561700360A6F /* lang.strings */; };
 		CC11649D23835C7B00E0DAE4 /* SPRegistryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC11649C23835C7B00E0DAE4 /* SPRegistryController.swift */; };
 		CC303BB22379C15C0023E958 /* SPListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC303BB12379C15C0023E958 /* SPListController.swift */; };
+		CC590DBA23A2B15000B6EA76 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC590DB923A2B15000B6EA76 /* BaseController.swift */; };
+		CC5D83DA23A5A2240068E2E4 /* SPSetupServicesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5D83D923A5A2240068E2E4 /* SPSetupServicesController.swift */; };
+		CC5D83DE23A5BD370068E2E4 /* actionAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5D83DD23A5BD370068E2E4 /* actionAlert.swift */; };
 		CC65C0FC239AE90100E05F3C /* SPLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65C0FB239AE90100E05F3C /* SPLoginController.swift */; };
 		CC65C0FE239AEA7200E05F3C /* AdminModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65C0FD239AEA7200E05F3C /* AdminModel.swift */; };
 		CC65C100239B2DF600E05F3C /* SPHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65C0FF239B2DF600E05F3C /* SPHomeController.swift */; };
@@ -64,6 +67,9 @@
 		CC0CF5B72363561700360A6F /* lang.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = lang.strings; sourceTree = "<group>"; };
 		CC11649C23835C7B00E0DAE4 /* SPRegistryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPRegistryController.swift; sourceTree = "<group>"; };
 		CC303BB12379C15C0023E958 /* SPListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPListController.swift; sourceTree = "<group>"; };
+		CC590DB923A2B15000B6EA76 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
+		CC5D83D923A5A2240068E2E4 /* SPSetupServicesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPSetupServicesController.swift; sourceTree = "<group>"; };
+		CC5D83DD23A5BD370068E2E4 /* actionAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = actionAlert.swift; sourceTree = "<group>"; };
 		CC65C0FB239AE90100E05F3C /* SPLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPLoginController.swift; sourceTree = "<group>"; };
 		CC65C0FD239AEA7200E05F3C /* AdminModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminModel.swift; sourceTree = "<group>"; };
 		CC65C0FF239B2DF600E05F3C /* SPHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPHomeController.swift; sourceTree = "<group>"; };
@@ -152,6 +158,7 @@
 				CCB9776F239C4F8C00942F2A /* addstaffController.swift */,
 				CCC02063239DF5DA00DDE948 /* cleintlistController.swift */,
 				CCC02065239DF62A00DDE948 /* showstaffController.swift */,
+				CC5D83D923A5A2240068E2E4 /* SPSetupServicesController.swift */,
 			);
 			path = SP;
 			sourceTree = "<group>";
@@ -201,6 +208,8 @@
 				CC0A7D182379E9B900745D5E /* Util.swift */,
 				CC0A7D1A2379EE2E00745D5E /* keys.swift */,
 				CCABB73B2395F525005059A5 /* Artwork.swift */,
+				CC590DB923A2B15000B6EA76 /* BaseController.swift */,
+				CC5D83DD23A5BD370068E2E4 /* actionAlert.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -365,6 +374,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC5D83DE23A5BD370068E2E4 /* actionAlert.swift in Sources */,
+				CC590DBA23A2B15000B6EA76 /* BaseController.swift in Sources */,
 				CC65C102239BD80700E05F3C /* SPSetupController.swift in Sources */,
 				CC0A7D22237B24A900745D5E /* ServiceController.swift in Sources */,
 				CC0A7D1B2379EE2E00745D5E /* keys.swift in Sources */,
@@ -397,6 +408,7 @@
 				CC9CC468237B75F9001125A5 /* SPBookingADVDoneController.swift in Sources */,
 				CC65C0FE239AEA7200E05F3C /* AdminModel.swift in Sources */,
 				CCABB73C2395F525005059A5 /* Artwork.swift in Sources */,
+				CC5D83DA23A5A2240068E2E4 /* SPSetupServicesController.swift in Sources */,
 				CCFC6201236070D0007B587D /* AppDelegate.swift in Sources */,
 				CC9CC461237B7096001125A5 /* Database.swift in Sources */,
 				CC11649D23835C7B00E0DAE4 /* SPRegistryController.swift in Sources */,
